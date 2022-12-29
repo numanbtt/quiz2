@@ -4,6 +4,7 @@ var arr1=[];
 var a1=0;
 var arr2=[];
 var a2=0;
+var audio = new Audio("assets/Mouse-Click.mp3");
 function check_order() {
     let first_row = +document.getElementById("first_row").value;
     let first_col = +document.getElementById("first_col").value;
@@ -19,17 +20,21 @@ function check_order() {
         document.getElementById("second_row").readOnly =true;
         document.getElementById("second_col").readOnly =true;
         document.getElementById("impossible").innerHTML= `Order of matrices is locked for further calculations`;
+        document.getElementById("check").disabled =true;
+        document.getElementById("matrices_div").classList.remove('hidden');
+        
     }
+    audio.play();
 }
 
 
 function add_to_first_array() {
+    audio.play();
     let first_row = +document.getElementById("first_row").value;
     let first_col = +document.getElementById("first_col").value;
-    let first_entry = +document.getElementById("first_entry").value;
-    if (first_col*first_row == a1) {
-        document.getElementById("first_entry").readOnly =true;
-        console.log(matrix1)
+    let first_entry = document.getElementById("first_entry").value;
+    if (first_entry === "") {
+        alert("Input field is empty: Enter valid number")
     }
     else{
         if (arr1.length<=first_col) {
@@ -45,19 +50,22 @@ function add_to_first_array() {
         if (first_col*first_row == a1) {
             document.getElementById("first_entry").readOnly =true;
             console.log(matrix1)
+            document.getElementById("first_button").disabled =true;
         }
     }
     
     document.getElementById("first_entry").value="";
 }
 
+
+
 function add_to_second_array() {
+    audio.play();
     let second_row = +document.getElementById("second_row").value;
     let second_col = +document.getElementById("second_col").value;
-    let second_entry = +document.getElementById("second_entry").value;
-    if (second_col*second_row == a2) {
-        document.getElementById("second_entry").readOnly =true;
-        console.log(matrix1)
+    let second_entry = document.getElementById("second_entry").value;
+    if (second_entry === "") {
+        alert("Input field is empty: Enter valid number")
     }
     else{
         if (arr2.length<=second_col) {
@@ -67,18 +75,23 @@ function add_to_second_array() {
         }
         if (arr2.length==second_col){
             matrix2.push(arr2);
-            // matrix1.push(arr2, ...arr2);
             arr2=[];
             console.log(matrix2)
         }
-    }
-    if (second_col*second_row == a2) {
-        document.getElementById("second_entry").readOnly =true;
-        console.log(matrix2)
+        if (second_col*second_row == a2) {
+            document.getElementById("second_entry").readOnly =true;
+            console.log(matrix2)
+            document.getElementById("second_button").disabled =true;
+        }
     }
     document.getElementById("second_entry").value="";
 }
+
+
+
 function show_matrices() {
+    audio.play();
+    document.getElementById("multiply_div").classList.remove('hidden');
     document.getElementById("first_matrix").innerHTML="First Matrix"
     document.getElementById("second_matrix").innerHTML="Second Matrix"
     for (let i = 0; i < matrix1.length; i++) {
@@ -91,9 +104,13 @@ function show_matrices() {
         h4.innerHTML=`[${matrix2[j]}]`
         document.getElementById("second_matrix").appendChild(h4);
     }
+    
 }
 
 function multiply_matrices(){
+    audio.play();
+    document.getElementById("footer_div").classList.remove('hidden');
+    document.getElementById("answer_hidden_div").classList.remove('hidden');
     let first_row = +document.getElementById("first_row").value;
     let first_col = +document.getElementById("first_col").value;
     let second_col = +document.getElementById("second_col").value;
@@ -121,4 +138,5 @@ function multiply_matrices(){
         document.getElementById("answer").appendChild(h4);
         
     }
+    
 }

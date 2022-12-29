@@ -13,56 +13,40 @@ var currentdtdays="";
 var age_in_days;
     var date_of_birth = document.getElementById("dob").value;
     var currentdate = document.getElementById("today").value;
-    //   for birthday date convert into array
     for(var i=0;i<date_of_birth.length;i++){
       dob.push(date_of_birth[i]);
         }  
         console.log(dob);
-
-      //   for current date convert into array
     for(var j=0;j<date_of_birth.length;j++){
       currentdt.push(currentdate[j]);
         } 
-        // age in years 
-          for(var l=0;l<4;l++){
-              dob_year+=dob[l];
+          for(var k=0;k<4;k++){
+              dob_year+=dob[k];
            }  
            dob_year = +dob_year;  
 
-          for(var m=0;m<4;m++){
-              currentdtyear+=currentdt[m];
+          for(var l=0;l<4;l++){
+              currentdtyear+=currentdt[l];
            }  
            currentdtyear = +currentdtyear; 
-           // age in month
-           for(var l=5;l<7;l++){
-              dob_mon+=dob[l];
+           for(var m=5;m<7;m++){
+              dob_mon+=dob[m];
            }  
            dob_mon = +dob_mon;  
-          for(var m=5;m<7;m++){
-              currentdtmon+=currentdt[m];
+          for(var n=5;n<7;n++){
+              currentdtmon+=currentdt[n];
            }  
            currentdtmon = +currentdtmon;
-          //  age in days
-          for(var l=8;l<=9;l++){
-              dob_days+=dob[l];
+          for(var o=8;o<=9;o++){
+              dob_days+=dob[o];
            }  
            dob_days = +dob_days;  
-          
-
-          for(var m=8;m<=9;m++){
-              currentdtdays+=currentdt[m];
+          for(var p=8;p<=9;p++){
+              currentdtdays+=currentdt[p];
            }  
            currentdtdays = +currentdtdays;
-          
-          // age in years 
              age_in_year = currentdtyear-dob_year;
-
-          //  age in month
              age_in_month = currentdtmon-dob_mon;
-          
-          //  age in days
              age_in_days = currentdtdays-dob_days;
-document.getElementById("answer").innerHTML= `You are ${age_in_year}years, ${age_in_month}months and ${age_in_days}days old`      
-document.getElementById("dob").value="";
-document.getElementById("today").value="";
+document.getElementById("answer").innerHTML= `You are ${age_in_year}years, ${age_in_month}months and ${age_in_days}days old`
 }
