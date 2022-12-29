@@ -63,6 +63,7 @@
             <button
               class="cursor-pointer rounded-lg bg-black px-5 py-3 text-white transition duration-500 hover:scale-110"
               onclick="check_order()"
+              id="check"
             >
               Check for multiplication of Matrix
             </button>
@@ -77,7 +78,10 @@
     </div>
 
     <!-- Enter Values in the Matrices -->
-    <div class="flex h-screen flex-col items-center justify-center">
+    <div
+      class="flex hidden h-screen flex-col items-center justify-center"
+      id="matrices_div"
+    >
       <h1
         class="my-10 px-7 py-3 text-center text-2xl font-bold underline underline-offset-4"
       >
@@ -98,7 +102,9 @@
           <div
             class="duration-400 flex w-fit items-center justify-center rounded-lg bg-black px-3 py-2 font-semibold text-white transition hover:scale-105"
           >
-            <button onclick="add_to_first_array()">Add to First matrix</button>
+            <button onclick="add_to_first_array()" id="first_button">
+              Add to First matrix
+            </button>
           </div>
           <!-- Enter Values for the Second Matrix -->
 
@@ -114,7 +120,7 @@
           <div
             class="duration-400 flex w-fit items-center justify-center rounded-lg bg-black px-3 py-2 font-semibold text-white transition hover:scale-105"
           >
-            <button onclick="add_to_second_array()">
+            <button onclick="add_to_second_array()" id="second_button">
               Add to Second matrix
             </button>
           </div>
@@ -141,24 +147,26 @@
         ></div>
       </div>
     </div>
-    <div class="flex h-72 items-center justify-center">
-      <h1 class="p-5 text-center text-5xl font-bold italic">
-        Let's Calculate the Multiplication now
-      </h1>
-    </div>
 
     <!-- Multiply Matrices -->
-    <div class="my-5 flex flex-col items-center justify-center">
-      <button
-        onclick="multiply_matrices()"
-        class="rounded-lg bg-green-600 px-7 py-3 text-2xl font-bold text-white transition duration-500 hover:scale-105 hover:bg-green-700"
-      >
-        Multiply Both Matrices
-      </button>
+    <div id="multiply_div" class="hidden">
+      <div class="flex h-72 items-center justify-center">
+        <h1 class="p-5 text-center text-5xl font-bold italic">
+          Let's Calculate the Multiplication now
+        </h1>
+      </div>
+      <div class="my-5 flex flex-col items-center justify-center">
+        <button
+          onclick="multiply_matrices()"
+          class="rounded-lg bg-green-600 px-7 py-3 text-2xl font-bold text-white transition duration-500 hover:scale-105 hover:bg-green-700"
+        >
+          Multiply Both Matrices
+        </button>
+      </div>
     </div>
 
     <!-- Footer Banner -->
-    <div class="relative h-screen bg-fixed">
+    <div class="relative hidden h-screen bg-fixed" id="footer_div">
       <video
         autoplay
         muted
@@ -178,10 +186,14 @@
 
     <!-- Answer -->
     <div
-      class="flex h-screen flex-row items-center justify-center empty:hidden"
+      class="flex hidden h-screen flex-row items-center justify-center"
+      id="answer_hidden_div"
     >
       <div>
-        <div id="answer" class="text-7xl font-bold tracking-wide"></div>
+        <div
+          id="answer"
+          class="flex flex-col items-center justify-center text-7xl font-bold tracking-wide empty:hidden"
+        ></div>
       </div>
     </div>
   </body>
