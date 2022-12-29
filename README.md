@@ -1,2 +1,1 @@
-# quiz2
-quiz2
+To pratice the GitHub software
