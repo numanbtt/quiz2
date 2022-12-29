@@ -1,0 +1,13 @@
+=> Arrow functions were introduced in ECMAScript6. Before that only regular functions were used that started with => the keyword "function" to be defined.
+=> Arrow function shorten the code.
+=> Arrow functions are easier to understand.
+=> In case of arrow function, we can use the concept of anonymous function(making a function without name) and create arrow function within another function.
+=> Famous front-End library, React, made by Facebook also utilizes the concept to arrow functions and shorten the code.
+=> Syntax of Regular Function: 
+function name(parameters){
+           // Your code here
+{
+=> Syntax of Arrow function:
+const name = (parameters) =>{
+           // Your code here
+{
